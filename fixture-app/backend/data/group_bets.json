@@ -1,0 +1,57 @@
+[
+  {
+    "userId": "1772662322632",
+    "groupName": "A",
+    "positions": [
+      {
+        "name": "México",
+        "flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/mx.svg",
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dg": 0,
+        "pts": 0
+      },
+      {
+        "name": "Sudáfrica",
+        "flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/za.svg",
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dg": 0,
+        "pts": 0
+      },
+      {
+        "name": "Corea del Sur",
+        "flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/kr.svg",
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dg": 0,
+        "pts": 0
+      },
+      {
+        "name": "UEFA 4",
+        "flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/eu.svg",
+        "pj": 0,
+        "g": 0,
+        "e": 0,
+        "p": 0,
+        "gf": 0,
+        "gc": 0,
+        "dg": 0,
+        "pts": 0
+      }
+    ],
+    "timestamp": 1773927401470
+  }
+]

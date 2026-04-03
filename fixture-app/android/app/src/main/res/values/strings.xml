@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">fixture-app</string>
+    <string name="title_activity_main">fixture-app</string>
+    <string name="package_name">com.fixture.reyes</string>
+    <string name="custom_url_scheme">com.fixture.reyes</string>
+</resources>

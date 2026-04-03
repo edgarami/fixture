@@ -1,0 +1,23 @@
+[
+  {
+    "userId": "1772662322632",
+    "matchId": "17",
+    "score1": 3,
+    "score2": 2,
+    "timestamp": 1773926597818
+  },
+  {
+    "userId": "1772662322632",
+    "matchId": "2",
+    "score1": 0,
+    "score2": 1,
+    "timestamp": 1773927053672
+  },
+  {
+    "userId": "1772662322632",
+    "matchId": "1",
+    "score1": 2,
+    "score2": 1,
+    "timestamp": 1775235059896
+  }
+]
