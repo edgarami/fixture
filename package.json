@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
+    "build:netlify": "node scripts/generate-environment.mjs && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "firebase:seed-matches": "node scripts/seed-matches.mjs",

@@ -43,8 +43,7 @@ __screenshots__/
 .DS_Store
 Thumbs.db
 
-# Firebase / secrets locales (usar environment.example.ts como plantilla)
-src/environments/environment.ts
+# Secretos de servidor / scripts (no subir)
 scripts/service-account.json
 scripts/local-secrets.env
 *.service-account.json
