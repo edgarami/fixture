@@ -42,3 +42,6 @@ __screenshots__/
 # System files
 .DS_Store
 Thumbs.db
+
+# Firebase / secrets locales (usar environment.example.ts como plantilla)
+src/environments/environment.ts
