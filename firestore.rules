@@ -39,5 +39,11 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
+
+    // Partidos: lectura para todos; escritura solo Admin SDK (scripts de sincronización)
+    match /matches/{matchId} {
+      allow read: if true;
+      allow write: if false;
+    }
   }
 }

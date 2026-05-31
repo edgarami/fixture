@@ -1,0 +1,34 @@
+# Sincroniza resultados con football-data.org cada 15 minutos.
+# Secrets requeridos en GitHub: FIREBASE_SERVICE_ACCOUNT, FOOTBALL_DATA_API_KEY
+# Opcional: FOOTBALL_COMPETITION_CODE (default WC)
+
+name: Sync match results
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - run: npm ci --legacy-peer-deps
+
+      - name: Write Firebase service account
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: echo "$FIREBASE_SERVICE_ACCOUNT" > scripts/service-account.json
+
+      - name: Sync results to Firestore
+        env:
+          FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+          FOOTBALL_COMPETITION_CODE: ${{ secrets.FOOTBALL_COMPETITION_CODE }}
+        run: npm run firebase:sync-results

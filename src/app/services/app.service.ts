@@ -11,10 +11,13 @@ import {
     doc,
     getDoc,
     getDocs,
+    onSnapshot,
     query,
     setDoc,
     updateDoc,
     where,
+    orderBy,
+    type Unsubscribe,
 } from 'firebase/firestore';
 import { from, Observable, of, switchMap, tap, map, catchError, throwError } from 'rxjs';
 import { auth, db } from '../core/firebase';
@@ -64,6 +67,9 @@ export interface Match {
     isFinished: boolean;
     group: string;
     matchNumber?: number;
+    /** ID del partido en football-data.org (lo asigna el script de sync) */
+    footballDataId?: number;
+    syncedAt?: string;
 }
 
 interface ResultsConfig {
@@ -82,6 +88,8 @@ export class AppService {
     groupBets = signal<GroupBet[]>([]);
     matches = signal<Match[]>([]);
     ranking = signal<User[]>([]);
+
+    private matchesUnsubscribe: Unsubscribe | null = null;
 
     constructor() {
         onAuthStateChanged(auth, async (fbUser) => {
@@ -169,8 +177,39 @@ export class AppService {
     }
 
     fetchMatches() {
+        if (this.matchesUnsubscribe) {
+            this.matchesUnsubscribe();
+            this.matchesUnsubscribe = null;
+        }
+
+        const matchesQuery = query(collection(db, 'matches'), orderBy('time'));
+        this.matchesUnsubscribe = onSnapshot(
+            matchesQuery,
+            (snapshot) => {
+                if (snapshot.empty) {
+                    this.loadMatchesFromJsonFallback();
+                    return;
+                }
+                const data = snapshot.docs.map((d) => ({
+                    id: d.id,
+                    ...(d.data() as Omit<Match, 'id'>),
+                }));
+                this.matches.set(data);
+                this.fetchRanking();
+            },
+            (err) => {
+                console.warn('Firestore matches:', err.message, '— usando matches.json');
+                this.loadMatchesFromJsonFallback();
+            },
+        );
+    }
+
+    private loadMatchesFromJsonFallback() {
         this.http.get<Match[]>('/assets/matches.json').subscribe({
-            next: (data) => this.matches.set(data),
+            next: (data) => {
+                this.matches.set(data);
+                this.fetchRanking();
+            },
             error: (err) => console.error('No se pudieron cargar los partidos:', err),
         });
     }

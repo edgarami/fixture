@@ -6,7 +6,9 @@
     "start": "ng serve --host 0.0.0.0",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "firebase:seed-matches": "node scripts/seed-matches.mjs",
+    "firebase:sync-results": "node scripts/sync-match-results.mjs"
   },
   "private": true,
   "packageManager": "npm@11.9.0",
@@ -30,6 +32,7 @@
     "@angular/compiler-cli": "^21.2.0",
     "@capacitor/android": "^6.1.2",
     "@capacitor/core": "^6.1.2",
+    "firebase-admin": "^13.10.0",
     "jsdom": "^28.0.0",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2",

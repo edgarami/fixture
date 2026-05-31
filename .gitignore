@@ -45,3 +45,6 @@ Thumbs.db
 
 # Firebase / secrets locales (usar environment.example.ts como plantilla)
 src/environments/environment.ts
+scripts/service-account.json
+scripts/local-secrets.env
+*.service-account.json
