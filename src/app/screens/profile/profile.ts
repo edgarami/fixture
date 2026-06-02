@@ -2,6 +2,7 @@ import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AppService } from '../../services/app.service';
+import { getExactPoints, getPenaltyPoints, getResultPoints } from '../../core/round-scoring.utils';
 
 @Component({
   selector: 'app-profile',
@@ -54,9 +55,16 @@ import { AppService } from '../../services/app.service';
                       <img [src]="bet.match.team2Flag" [alt]="bet.match.team2">
                     </div>
                   </td>
-                  <td class="bet-value">{{ bet.score1 }} - {{ bet.score2 }}</td>
+                  <td class="bet-value">
+                    <span *ngIf="bet.type === 'score'">{{ bet.score1 }} - {{ bet.score2 }}</span>
+                    <span *ngIf="bet.type === 'penalty'">Penaltis: {{ bet.penaltyLabel }}</span>
+                  </td>
                   <td class="result-value">
-                    <span *ngIf="bet.match?.isFinished">{{ bet.match?.score1 }} - {{ bet.match?.score2 }}</span>
+                    <span *ngIf="bet.match?.isFinished && bet.type === 'score'">{{ bet.match?.score1 }} - {{ bet.match?.score2 }}</span>
+                    <span *ngIf="bet.match?.isFinished && bet.type === 'penalty' && bet.match?.wentToPenalties">
+                      {{ bet.match?.penaltyWinner === 1 ? bet.match?.team1 : bet.match?.team2 }}
+                    </span>
+                    <span *ngIf="bet.match?.isFinished && bet.type === 'penalty' && !bet.match?.wentToPenalties" class="text-muted">Sin penaltis</span>
                     <span *ngIf="!bet.match?.isFinished" class="text-muted">Pendiente</span>
                   </td>
                   <td class="points-value">
@@ -216,11 +224,12 @@ export class ProfileComponent {
 
   public userBetsWithMatches = computed(() => {
     const bets = this.appService.bets();
+    const penaltyBets = this.appService.penaltyBets();
     const matches = this.appService.matches();
-    
-    return bets.map(bet => {
+
+    const scoreRows = bets.map(bet => {
       const match = matches.find(m => m.id === bet.matchId);
-      
+
       let pg = 0;
       let pp = 0;
       let totalPoints = 0;
@@ -228,29 +237,62 @@ export class ProfileComponent {
       if (match && match.isFinished && match.score1 !== null && match.score2 !== null) {
         const actualResult = Math.sign(match.score1 - match.score2);
         const predictedResult = Math.sign(bet.score1 - bet.score2);
-        
+
         const isExact = match.score1 === bet.score1 && match.score2 === bet.score2;
         const isResultCorrect = actualResult === predictedResult;
 
         if (isExact) {
-          pg = 5;
-          pp = 5;
-          totalPoints = 10;
+          pg = getResultPoints(match.group);
+          pp = getResultPoints(match.group);
+          totalPoints = getExactPoints(match.group);
         } else if (isResultCorrect) {
-          pg = 5;
+          pg = getResultPoints(match.group);
           pp = 0;
-          totalPoints = 5;
+          totalPoints = getResultPoints(match.group);
         }
       }
 
       return {
         ...bet,
+        type: 'score' as const,
         match,
         pg,
         pp,
-        totalPoints
+        totalPoints,
+        penaltyLabel: '',
       };
-    }).sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+    });
+
+    const penaltyRows = penaltyBets.map(pb => {
+      const match = matches.find(m => m.id === pb.matchId);
+      let totalPoints = 0;
+
+      if (
+        match &&
+        match.isFinished &&
+        match.wentToPenalties &&
+        match.penaltyWinner === pb.winnerTeam
+      ) {
+        totalPoints = getPenaltyPoints(match.group);
+      }
+
+      const penaltyLabel =
+        pb.winnerTeam === 1 ? match?.team1 ?? 'Equipo 1' : match?.team2 ?? 'Equipo 2';
+
+      return {
+        ...pb,
+        type: 'penalty' as const,
+        match,
+        pg: totalPoints > 0 ? totalPoints : 0,
+        pp: totalPoints === 0 && match?.isFinished ? 1 : 0,
+        totalPoints,
+        penaltyLabel,
+        score1: 0,
+        score2: 0,
+      };
+    });
+
+    return [...scoreRows, ...penaltyRows].sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
   });
 
   logout() {

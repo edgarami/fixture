@@ -21,6 +21,7 @@ import {
 } from 'firebase/firestore';
 import { from, Observable, of, switchMap, tap, map, catchError, throwError } from 'rxjs';
 import { auth, db } from '../core/firebase';
+import { getExactPoints, getPenaltyPoints, getResultPoints, GROUP_FIRST_PLACE_POINTS, GROUP_FULL_ORDER_POINTS, isKnockoutRound } from '../core/round-scoring.utils';
 
 export interface User {
     id: string;
@@ -38,6 +39,13 @@ export interface Bet {
     matchId: string;
     score1: number;
     score2: number;
+    timestamp: number;
+}
+
+export interface PenaltyBet {
+    userId: string;
+    matchId: string;
+    winnerTeam: 1 | 2;
     timestamp: number;
 }
 
@@ -66,6 +74,8 @@ export interface Match {
     venue: string;
     isFinished: boolean;
     group: string;
+    wentToPenalties?: boolean;
+    penaltyWinner?: 1 | 2;
     matchNumber?: number;
     /** ID del partido en football-data.org (lo asigna el script de sync) */
     footballDataId?: number;
@@ -85,6 +95,7 @@ export class AppService {
 
     currentUser = signal<User | null>(null);
     bets = signal<Bet[]>([]);
+    penaltyBets = signal<PenaltyBet[]>([]);
     groupBets = signal<GroupBet[]>([]);
     matches = signal<Match[]>([]);
     ranking = signal<User[]>([]);
@@ -98,6 +109,7 @@ export class AppService {
             } else {
                 this.currentUser.set(null);
                 this.bets.set([]);
+                this.penaltyBets.set([]);
                 this.groupBets.set([]);
             }
             this.fetchMatches();
@@ -125,6 +137,7 @@ export class AppService {
         const user = this.profileToUser(uid, snap.data());
         this.currentUser.set(user);
         this.fetchUserBets(uid);
+        this.fetchPenaltyBets(uid);
         this.fetchGroupBets(uid);
     }
 
@@ -224,8 +237,12 @@ export class AppService {
 
             const matches = this.matches();
             const bets = betsSnap.docs.map((d) => d.data() as Bet);
-            const groupBetsSnap = await getDocs(collection(db, 'group_bets'));
+            const [groupBetsSnap, penaltyBetsSnap] = await Promise.all([
+                getDocs(collection(db, 'group_bets')),
+                getDocs(collection(db, 'penalty_bets')),
+            ]);
             const groupBets = groupBetsSnap.docs.map((d) => d.data() as GroupBet);
+            const penaltyBets = penaltyBetsSnap.docs.map((d) => d.data() as PenaltyBet);
             const results: ResultsConfig = resultsSnap.exists()
                 ? (resultsSnap.data() as ResultsConfig)
                 : { champion: null, groups: {} };
@@ -249,14 +266,14 @@ export class AppService {
                         const predictedDiff = bet.score1 - bet.score2;
 
                         if (match.score1 === bet.score1 && match.score2 === bet.score2) {
-                            calculatedPoints += 10;
+                            calculatedPoints += getExactPoints(match.group);
                             wonGames++;
                         } else if (
                             (actualDiff > 0 && predictedDiff > 0) ||
                             (actualDiff < 0 && predictedDiff < 0) ||
                             (actualDiff === 0 && predictedDiff === 0)
                         ) {
-                            calculatedPoints += 5;
+                            calculatedPoints += getResultPoints(match.group);
                             wonGames++;
                         }
                     }
@@ -266,19 +283,32 @@ export class AppService {
                     calculatedPoints += 20;
                 }
 
+                const userPenaltyBets = penaltyBets.filter((pb) => pb.userId === user.id);
+                userPenaltyBets.forEach((pb) => {
+                    const match = matches.find((m) => m.id === pb.matchId);
+                    if (
+                        match &&
+                        match.isFinished &&
+                        match.wentToPenalties &&
+                        match.penaltyWinner === pb.winnerTeam
+                    ) {
+                        calculatedPoints += getPenaltyPoints(match.group);
+                    }
+                });
+
                 const userGroupBets = groupBets.filter((gb) => gb.userId === user.id);
                 userGroupBets.forEach((gb) => {
                     const officialOrder = results.groups[gb.groupName];
                     if (officialOrder && Array.isArray(officialOrder)) {
                         const positions = gb.positions as { name?: string }[];
                         if (positions[0]?.name === officialOrder[0]) {
-                            calculatedPoints += 5;
+                            calculatedPoints += GROUP_FIRST_PLACE_POINTS;
                         }
                         const allMatch = positions.every(
                             (p, idx) => p.name === officialOrder[idx],
                         );
                         if (allMatch) {
-                            calculatedPoints += 3;
+                            calculatedPoints += GROUP_FULL_ORDER_POINTS;
                         }
                     }
                 });
@@ -307,6 +337,13 @@ export class AppService {
         const q = query(collection(db, 'bets'), where('userId', '==', userId));
         getDocs(q).then((snap) => {
             this.bets.set(snap.docs.map((d) => d.data() as Bet));
+        });
+    }
+
+    fetchPenaltyBets(userId: string) {
+        const q = query(collection(db, 'penalty_bets'), where('userId', '==', userId));
+        getDocs(q).then((snap) => {
+            this.penaltyBets.set(snap.docs.map((d) => d.data() as PenaltyBet));
         });
     }
 
@@ -354,6 +391,43 @@ export class AppService {
             return 'Las apuestas se bloquean 10 minutos antes del partido';
         }
         return null;
+    }
+
+    placePenaltyBet(matchId: string, winnerTeam: 1 | 2) {
+        const user = this.currentUser();
+        if (!user) {
+            return of(null);
+        }
+
+        const match = this.matches().find((m) => m.id === matchId);
+        if (!match || !isKnockoutRound(match.group)) {
+            return of(null);
+        }
+
+        const lockError = this.assertBettingAllowed(matchId);
+        if (lockError) {
+            console.error(lockError);
+            return of(null);
+        }
+
+        const betId = `${user.id}_${matchId}`;
+        const newBet: PenaltyBet = {
+            userId: user.id,
+            matchId,
+            winnerTeam,
+            timestamp: Date.now(),
+        };
+
+        return from(setDoc(doc(db, 'penalty_bets', betId), newBet)).pipe(
+            tap(() => {
+                this.fetchPenaltyBets(user.id);
+                this.fetchRanking();
+            }),
+            catchError((err) => {
+                console.error('Error al guardar apuesta de penaltis:', err);
+                return of(null);
+            }),
+        );
     }
 
     placeBet(matchId: string, score1: number, score2: number) {
@@ -459,10 +533,23 @@ export class AppService {
         return this.bets().find((b) => b.matchId === matchId);
     }
 
+    getPenaltyBetForMatch(matchId: string): PenaltyBet | undefined {
+        return this.penaltyBets().find((b) => b.matchId === matchId);
+    }
+
+    isKnockoutMatch(match: Match): boolean {
+        return isKnockoutRound(match.group);
+    }
+
+    getPenaltyPointsForMatch(match: Match): number {
+        return getPenaltyPoints(match.group);
+    }
+
     logout() {
         signOut(auth);
         this.currentUser.set(null);
         this.bets.set([]);
+        this.penaltyBets.set([]);
         this.groupBets.set([]);
     }
 

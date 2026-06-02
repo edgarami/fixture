@@ -61,7 +61,7 @@ import { AppService } from '../../services/app.service';
             <div class="legend-icon"><i class="fas fa-medal gold-text"></i></div>
             <div class="legend-info">
               <span class="legend-label">DESAFÍO GRUPO (1º)</span>
-              <span class="legend-value">5 PTS</span>
+              <span class="legend-value">1 PT</span>
               <p class="legend-desc">Por acertar el primer puesto de un grupo.</p>
             </div>
           </div>
@@ -77,16 +77,24 @@ import { AppService } from '../../services/app.service';
             <div class="legend-icon"><i class="fas fa-bullseye gold-text"></i></div>
             <div class="legend-info">
               <span class="legend-label">RESULTADO EXACTO</span>
-              <span class="legend-value">10 PTS</span>
-              <p class="legend-desc">Por acertar el marcador exacto (incluye empates).</p>
+              <span class="legend-value">5–10 PTS</span>
+              <p class="legend-desc">5 pts en fase de grupos (incluye empate); +1 por cada ronda eliminatoria (hasta 10 en la final).</p>
             </div>
           </div>
           <div class="legend-item">
             <div class="legend-icon"><i class="fas fa-check gold-text"></i></div>
             <div class="legend-info">
               <span class="legend-label">GANADOR O EMPATE</span>
-              <span class="legend-value">5 PTS</span>
-              <p class="legend-desc">Por acertar el resultado sin el marcador exacto.</p>
+              <span class="legend-value">5–10 PTS</span>
+              <p class="legend-desc">5 pts en fase de grupos; +1 por cada ronda eliminatoria (hasta 10 en la final).</p>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-icon"><i class="fas fa-futbol gold-text"></i></div>
+            <div class="legend-info">
+              <span class="legend-label">PENALTIS (ELIMINATORIAS)</span>
+              <span class="legend-value">3–10 PTS</span>
+              <p class="legend-desc">Apuesta extra si va a penaltis. Base 2–5 pts según ronda, más el bonus por fase.</p>
             </div>
           </div>
         </div>

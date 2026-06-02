@@ -58,6 +58,48 @@ import { AppService, Match, MatchBetSummary } from '../../services/app.service';
         </div>
       </div>
 
+      <div class="penalty-section" *ngIf="isKnockout && !match.isFinished && !showBetForm() && !showDetails()">
+        <div class="penalty-header">
+          <span><i class="fas fa-futbol"></i> Apuesta extra de penaltis</span>
+          <span class="penalty-pts gold-text">{{penaltyPoints}} PTS</span>
+        </div>
+        <p class="penalty-desc">Si el partido va a penaltis, elige quién gana</p>
+
+        <div class="penalty-bet-info" *ngIf="!showPenaltyForm() && appService.getPenaltyBetForMatch(match.id) as penaltyBet">
+          Tu pick: <span class="gold-text">{{ penaltyBet.winnerTeam === 1 ? match.team1 : match.team2 }}</span>
+          <button class="btn-edit-penalty" (click)="openPenaltyForm()">Editar</button>
+        </div>
+
+        <div class="penalty-form" *ngIf="showPenaltyForm()">
+          <div class="penalty-picker">
+            <button type="button"
+                    class="penalty-team-btn"
+                    [class.selected]="penaltyPick === 1"
+                    (click)="penaltyPick = 1">
+              <img [src]="match.team1Flag" alt="">
+              <span>{{match.team1}}</span>
+            </button>
+            <button type="button"
+                    class="penalty-team-btn"
+                    [class.selected]="penaltyPick === 2"
+                    (click)="penaltyPick = 2">
+              <img [src]="match.team2Flag" alt="">
+              <span>{{match.team2}}</span>
+            </button>
+          </div>
+          <div class="penalty-actions">
+            <button class="btn-secondary flex-1" (click)="cancelPenaltyForm()">Cancelar</button>
+            <button class="btn-premium flex-1" [disabled]="!penaltyPick" (click)="confirmPenaltyBet()">Guardar</button>
+          </div>
+        </div>
+
+        <button class="btn-penalty-open"
+                *ngIf="!showPenaltyForm() && !appService.getPenaltyBetForMatch(match.id)"
+                (click)="openPenaltyForm()">
+          Elegir ganador en penaltis
+        </button>
+      </div>
+
       <div class="user-bet-info" *ngIf="!showBetForm() && !showDetails() && appService.getBetForMatch(match.id) as userBet">
         Tu apuesta: <span class="gold-text">{{userBet.score1}} - {{userBet.score2}}</span>
       </div>
@@ -228,6 +270,95 @@ import { AppService, Match, MatchBetSummary } from '../../services/app.service';
     }
     .sep { color: var(--gold-primary); font-weight: 800; font-size: 1.5rem; }
     .bet-actions { display: flex; gap: 1rem; width: 100%; }
+
+    .penalty-section {
+      background: rgba(212, 175, 55, 0.04);
+      border: 1px dashed rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .penalty-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .penalty-header i { color: var(--gold-primary); margin-right: 6px; }
+    .penalty-pts { font-size: 0.85rem; font-weight: 900; }
+    .penalty-desc {
+      margin: 0;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .penalty-picker {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .penalty-team-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .penalty-team-btn img {
+      width: 32px;
+      height: 24px;
+      object-fit: cover;
+      border-radius: 3px;
+    }
+    .penalty-team-btn.selected {
+      border-color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.12);
+      box-shadow: 0 0 12px rgba(212, 175, 55, 0.15);
+    }
+    .penalty-actions { display: flex; gap: 0.75rem; }
+    .penalty-bet-info {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn-edit-penalty, .btn-penalty-open {
+      background: transparent;
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      width: 100%;
+    }
+    .btn-edit-penalty {
+      width: auto;
+      padding: 0.35rem 0.75rem;
+    }
+    .btn-penalty-open:hover, .btn-edit-penalty:hover {
+      background: rgba(212, 175, 55, 0.1);
+    }
     
     .user-bet-info {
         text-align: center;
@@ -312,9 +443,19 @@ export class MatchCard {
 
   showBetForm = signal(false);
   showDetails = signal(false);
+  showPenaltyForm = signal(false);
   matchBets = signal<MatchBetSummary[]>([]);
   betScore1 = 0;
   betScore2 = 0;
+  penaltyPick: 1 | 2 | null = null;
+
+  get isKnockout(): boolean {
+    return this.appService.isKnockoutMatch(this.match);
+  }
+
+  get penaltyPoints(): number {
+    return this.appService.getPenaltyPointsForMatch(this.match);
+  }
 
   formatTime(iso: string): string {
     const d = new Date(iso);
@@ -332,8 +473,39 @@ export class MatchCard {
       this.betScore1 = currentBet.score1;
       this.betScore2 = currentBet.score2;
     }
+    this.showPenaltyForm.set(false);
     this.showDetails.set(false);
     this.showBetForm.set(true);
+  }
+
+  openPenaltyForm() {
+    if (!this.appService.isLoggedIn()) {
+      alert('Debes unirte primero para apostar');
+      return;
+    }
+    const current = this.appService.getPenaltyBetForMatch(this.match.id);
+    this.penaltyPick = current?.winnerTeam ?? null;
+    this.showBetForm.set(false);
+    this.showDetails.set(false);
+    this.showPenaltyForm.set(true);
+  }
+
+  cancelPenaltyForm() {
+    this.showPenaltyForm.set(false);
+    this.penaltyPick = null;
+  }
+
+  confirmPenaltyBet() {
+    if (!this.penaltyPick) {
+      return;
+    }
+    this.appService.placePenaltyBet(this.match.id, this.penaltyPick).subscribe((res) => {
+      if (res !== null) {
+        this.showPenaltyForm.set(false);
+      } else {
+        alert('Error al guardar apuesta de penaltis o partido bloqueado (10 min antes)');
+      }
+    });
   }
 
   confirmBet() {
@@ -348,6 +520,7 @@ export class MatchCard {
 
   viewDetails() {
     this.showBetForm.set(false);
+    this.showPenaltyForm.set(false);
     this.appService.fetchMatchBets(this.match.id).subscribe(bets => {
       this.matchBets.set(bets);
       this.showDetails.set(true);

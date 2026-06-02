@@ -177,7 +177,7 @@ app.get('/api/ranking', (req, res) => {
             if (officialOrder && Array.isArray(officialOrder)) {
                 // Correct 1st place (5 pts)
                 if (gb.positions[0] && gb.positions[0].name === officialOrder[0]) {
-                    calculatedPoints += 5;
+                    calculatedPoints += 1;
                 }
                 // Full correct order (3 pts)
                 const allMatch = gb.positions.every((p, idx) => p.name === officialOrder[idx]);

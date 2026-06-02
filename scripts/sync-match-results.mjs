@@ -167,6 +167,20 @@ for (const api of apiMatches) {
     }
 
     const { local } = found;
+
+    const penalties = api.score?.penalties;
+    let wentToPenalties = false;
+    let penaltyWinner = undefined;
+
+    if (penalties?.home != null && penalties?.away != null) {
+        wentToPenalties = true;
+        if (penalties.home > penalties.away) {
+            penaltyWinner = 1;
+        } else if (penalties.away > penalties.home) {
+            penaltyWinner = 2;
+        }
+    }
+
     await db.collection('matches').doc(local.id).set(
         {
             score1,
@@ -174,6 +188,7 @@ for (const api of apiMatches) {
             isFinished,
             footballDataId: api.id,
             syncedAt: new Date().toISOString(),
+            ...(wentToPenalties ? { wentToPenalties, penaltyWinner } : {}),
         },
         { merge: true },
     );
