@@ -499,21 +499,21 @@ export class MatchCard {
     if (!this.penaltyPick) {
       return;
     }
-    this.appService.placePenaltyBet(this.match.id, this.penaltyPick).subscribe((res) => {
-      if (res !== null) {
+    this.appService.placePenaltyBet(this.match.id, this.penaltyPick).subscribe((ok) => {
+      if (ok) {
         this.showPenaltyForm.set(false);
       } else {
-        alert('Error al guardar apuesta de penaltis o partido bloqueado (10 min antes)');
+        alert('No se pudo guardar la apuesta de penaltis. Iniciá sesión o esperá: se bloquea 10 min antes del partido.');
       }
     });
   }
 
   confirmBet() {
-    this.appService.placeBet(this.match.id, this.betScore1, this.betScore2).subscribe(res => {
-      if (res) {
+    this.appService.placeBet(this.match.id, this.betScore1, this.betScore2).subscribe((ok) => {
+      if (ok) {
         this.showBetForm.set(false);
       } else {
-        alert('Error al realizar apuesta o partido bloqueado (10 min antes)');
+        alert('No se pudo guardar la apuesta. Iniciá sesión o esperá: se bloquea 10 min antes del partido.');
       }
     });
   }

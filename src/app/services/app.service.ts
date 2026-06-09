@@ -380,34 +380,57 @@ export class AppService {
         );
     }
 
+    /** Convierte match.time (ISO string o Timestamp de Firestore) a milisegundos. */
+    private getMatchStartMs(match: Match): number | null {
+        const raw = match.time as unknown;
+        if (!raw) {
+            return null;
+        }
+        if (typeof raw === 'object' && raw !== null && 'toDate' in raw) {
+            return (raw as { toDate: () => Date }).toDate().getTime();
+        }
+        if (typeof raw === 'object' && raw !== null && 'seconds' in raw) {
+            return (raw as { seconds: number }).seconds * 1000;
+        }
+        const ms = new Date(String(raw)).getTime();
+        return Number.isNaN(ms) ? null : ms;
+    }
+
     private assertBettingAllowed(matchId: string): string | null {
         const match = this.matches().find((m) => m.id === matchId);
         if (!match) {
             return 'Partido no encontrado';
         }
-        const startTime = new Date(match.time).getTime();
-        const diffMinutes = (startTime - Date.now()) / (1000 * 60);
-        if (diffMinutes < 10) {
+        if (match.isFinished) {
+            return 'El partido ya finalizó';
+        }
+        const startTime = this.getMatchStartMs(match);
+        if (startTime === null) {
+            return 'Horario del partido no válido';
+        }
+        // Positivo = minutos que faltan para el inicio; negativo = partido ya empezó
+        const minutesUntilKickoff = (startTime - Date.now()) / (1000 * 60);
+        if (minutesUntilKickoff < 10) {
             return 'Las apuestas se bloquean 10 minutos antes del partido';
         }
         return null;
     }
 
-    placePenaltyBet(matchId: string, winnerTeam: 1 | 2) {
+    placePenaltyBet(matchId: string, winnerTeam: 1 | 2): Observable<boolean> {
         const user = this.currentUser();
         if (!user) {
-            return of(null);
+            return of(false);
         }
 
         const match = this.matches().find((m) => m.id === matchId);
         if (!match || !isKnockoutRound(match.group)) {
-            return of(null);
+            return of(false);
         }
 
         const lockError = this.assertBettingAllowed(matchId);
         if (lockError) {
             console.error(lockError);
-            return of(null);
+            return of(false);
         }
 
         const betId = `${user.id}_${matchId}`;
@@ -419,30 +442,31 @@ export class AppService {
         };
 
         return from(setDoc(doc(db, 'penalty_bets', betId), newBet)).pipe(
+            map(() => true),
             tap(() => {
                 this.fetchPenaltyBets(user.id);
                 this.fetchRanking();
             }),
             catchError((err) => {
                 console.error('Error al guardar apuesta de penaltis:', err);
-                return of(null);
+                return of(false);
             }),
         );
     }
 
-    placeBet(matchId: string, score1: number, score2: number) {
+    placeBet(matchId: string, score1: number, score2: number): Observable<boolean> {
         const user = this.currentUser();
         if (!user) {
-            return of(null);
+            return of(false);
         }
 
         const lockError = this.assertBettingAllowed(matchId);
         if (lockError) {
             console.error(lockError);
-            return of(null);
+            return of(false);
         }
         if (score1 < 0 || score2 < 0) {
-            return of(null);
+            return of(false);
         }
 
         const betId = `${user.id}_${matchId}`;
@@ -455,13 +479,14 @@ export class AppService {
         };
 
         return from(setDoc(doc(db, 'bets', betId), newBet)).pipe(
+            map(() => true),
             tap(() => {
                 this.fetchUserBets(user.id);
                 this.fetchRanking();
             }),
             catchError((err) => {
                 console.error('Error al guardar apuesta:', err);
-                return of(null);
+                return of(false);
             }),
         );
     }
