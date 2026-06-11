@@ -11,7 +11,7 @@ import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import { getFirestore } from './firebase-admin-init.mjs';
 import { loadLocalEnv } from './load-local-env.mjs';
-import { loadTeamMap, teamsPairMatch } from './team-name-utils.mjs';
+import { apiNameMatchesLocal, loadTeamMap, teamsPairMatch } from './team-name-utils.mjs';
 
 loadLocalEnv();
 
@@ -126,6 +126,24 @@ function findLocalForApi(api, locals) {
     return local ? { local, home, away } : null;
 }
 
+/**
+ * teamsPairMatch acepta el emparejamiento con los equipos invertidos
+ * (home de la API = team2 local). Detecta esa orientación para no
+ * guardar el marcador al revés.
+ */
+function isSwapped(local, home, away) {
+    if (
+        apiNameMatchesLocal(home, local.team1, teamMap) &&
+        apiNameMatchesLocal(away, local.team2, teamMap)
+    ) {
+        return false;
+    }
+    return (
+        apiNameMatchesLocal(home, local.team2, teamMap) &&
+        apiNameMatchesLocal(away, local.team1, teamMap)
+    );
+}
+
 let linked = 0;
 let updated = 0;
 let unmatched = 0;
@@ -155,9 +173,9 @@ for (const api of apiMatches) {
         continue;
     }
 
-    const score1 = api.score?.fullTime?.home ?? api.score?.regularTime?.home ?? null;
-    const score2 = api.score?.fullTime?.away ?? api.score?.regularTime?.away ?? null;
-    if (score1 === null || score2 === null) {
+    const homeScore = api.score?.fullTime?.home ?? api.score?.regularTime?.home ?? null;
+    const awayScore = api.score?.fullTime?.away ?? api.score?.regularTime?.away ?? null;
+    if (homeScore === null || awayScore === null) {
         continue;
     }
 
@@ -166,7 +184,10 @@ for (const api of apiMatches) {
         continue;
     }
 
-    const { local } = found;
+    const { local, home, away } = found;
+    const swapped = isSwapped(local, home, away);
+    const score1 = swapped ? awayScore : homeScore;
+    const score2 = swapped ? homeScore : awayScore;
 
     const penalties = api.score?.penalties;
     let wentToPenalties = false;
@@ -175,9 +196,9 @@ for (const api of apiMatches) {
     if (penalties?.home != null && penalties?.away != null) {
         wentToPenalties = true;
         if (penalties.home > penalties.away) {
-            penaltyWinner = 1;
+            penaltyWinner = swapped ? 2 : 1;
         } else if (penalties.away > penalties.home) {
-            penaltyWinner = 2;
+            penaltyWinner = swapped ? 1 : 2;
         }
     }
 

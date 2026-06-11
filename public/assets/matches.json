@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "time": "2026-06-11T15:00:00.000Z",
+    "time": "2026-06-11T19:00:00.000Z",
     "team1": "México",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/mx.svg",
     "team2": "Sudáfrica",
@@ -15,7 +15,7 @@
   },
   {
     "id": "2",
-    "time": "2026-06-11T22:00:00.000Z",
+    "time": "2026-06-12T02:00:00.000Z",
     "team1": "Corea del Sur",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/kr.svg",
     "team2": "Chequia",
@@ -29,7 +29,7 @@
   },
   {
     "id": "3",
-    "time": "2026-06-12T15:00:00.000Z",
+    "time": "2026-06-12T19:00:00.000Z",
     "team1": "Canadá",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ca.svg",
     "team2": "Bosnia y Herz.",
@@ -43,7 +43,7 @@
   },
   {
     "id": "4",
-    "time": "2026-06-12T21:00:00.000Z",
+    "time": "2026-06-13T01:00:00.000Z",
     "team1": "Estados Unidos",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/us.svg",
     "team2": "Paraguay",
@@ -57,7 +57,7 @@
   },
   {
     "id": "5",
-    "time": "2026-06-13T15:00:00.000Z",
+    "time": "2026-06-13T19:00:00.000Z",
     "team1": "Qatar",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/qa.svg",
     "team2": "Suiza",
@@ -71,7 +71,7 @@
   },
   {
     "id": "6",
-    "time": "2026-06-13T18:00:00.000Z",
+    "time": "2026-06-13T22:00:00.000Z",
     "team1": "Brasil",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/br.svg",
     "team2": "Marruecos",
@@ -85,7 +85,7 @@
   },
   {
     "id": "7",
-    "time": "2026-06-13T21:00:00.000Z",
+    "time": "2026-06-14T01:00:00.000Z",
     "team1": "Haití",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ht.svg",
     "team2": "Escocia",
@@ -99,7 +99,7 @@
   },
   {
     "id": "8",
-    "time": "2026-06-14T01:00:00.000Z",
+    "time": "2026-06-14T04:00:00.000Z",
     "team1": "Australia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/au.svg",
     "team2": "Turquía",
@@ -113,7 +113,7 @@
   },
   {
     "id": "9",
-    "time": "2026-06-14T13:00:00.000Z",
+    "time": "2026-06-14T17:00:00.000Z",
     "team1": "Alemania",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/de.svg",
     "team2": "Curazao",
@@ -127,7 +127,7 @@
   },
   {
     "id": "10",
-    "time": "2026-06-14T16:00:00.000Z",
+    "time": "2026-06-14T20:00:00.000Z",
     "team1": "Países Bajos",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/nl.svg",
     "team2": "Japón",
@@ -141,7 +141,7 @@
   },
   {
     "id": "11",
-    "time": "2026-06-14T19:00:00.000Z",
+    "time": "2026-06-14T23:00:00.000Z",
     "team1": "Costa de Marfil",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ci.svg",
     "team2": "Ecuador",
@@ -155,7 +155,7 @@
   },
   {
     "id": "12",
-    "time": "2026-06-14T22:00:00.000Z",
+    "time": "2026-06-15T02:00:00.000Z",
     "team1": "Suecia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/se.svg",
     "team2": "Túnez",
@@ -169,7 +169,7 @@
   },
   {
     "id": "13",
-    "time": "2026-06-15T12:00:00.000Z",
+    "time": "2026-06-15T16:00:00.000Z",
     "team1": "España",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/es.svg",
     "team2": "Cabo Verde",
@@ -183,7 +183,7 @@
   },
   {
     "id": "14",
-    "time": "2026-06-15T15:00:00.000Z",
+    "time": "2026-06-15T19:00:00.000Z",
     "team1": "Bélgica",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/be.svg",
     "team2": "Egipto",
@@ -197,7 +197,7 @@
   },
   {
     "id": "15",
-    "time": "2026-06-15T18:00:00.000Z",
+    "time": "2026-06-15T22:00:00.000Z",
     "team1": "Arabia Saudita",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/sa.svg",
     "team2": "Uruguay",
@@ -211,7 +211,7 @@
   },
   {
     "id": "16",
-    "time": "2026-06-15T21:00:00.000Z",
+    "time": "2026-06-16T01:00:00.000Z",
     "team1": "Irán",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ir.svg",
     "team2": "Nueva Zelanda",
@@ -225,7 +225,7 @@
   },
   {
     "id": "17",
-    "time": "2026-06-16T15:00:00.000Z",
+    "time": "2026-06-16T19:00:00.000Z",
     "team1": "Francia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/fr.svg",
     "team2": "Senegal",
@@ -239,7 +239,7 @@
   },
   {
     "id": "18",
-    "time": "2026-06-16T18:00:00.000Z",
+    "time": "2026-06-16T22:00:00.000Z",
     "team1": "Iraq",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/iq.svg",
     "team2": "Noruega",
@@ -253,7 +253,7 @@
   },
   {
     "id": "19",
-    "time": "2026-06-16T21:00:00.000Z",
+    "time": "2026-06-17T01:00:00.000Z",
     "team1": "Argentina",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ar.svg",
     "team2": "Argelia",
@@ -267,7 +267,7 @@
   },
   {
     "id": "21",
-    "time": "2026-06-17T13:00:00.000Z",
+    "time": "2026-06-17T17:00:00.000Z",
     "team1": "Portugal",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/pt.svg",
     "team2": "RD Congo",
@@ -281,7 +281,7 @@
   },
   {
     "id": "22",
-    "time": "2026-06-17T16:00:00.000Z",
+    "time": "2026-06-17T20:00:00.000Z",
     "team1": "Inglaterra",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/gb-eng.svg",
     "team2": "Croacia",
@@ -295,7 +295,7 @@
   },
   {
     "id": "23",
-    "time": "2026-06-17T19:00:00.000Z",
+    "time": "2026-06-17T23:00:00.000Z",
     "team1": "Ghana",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/gh.svg",
     "team2": "Panamá",
@@ -309,7 +309,7 @@
   },
   {
     "id": "24",
-    "time": "2026-06-17T22:00:00.000Z",
+    "time": "2026-06-18T02:00:00.000Z",
     "team1": "Uzbekistán",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/uz.svg",
     "team2": "Colombia",
@@ -323,7 +323,7 @@
   },
   {
     "id": "25",
-    "time": "2026-06-18T12:00:00.000Z",
+    "time": "2026-06-18T16:00:00.000Z",
     "team1": "Chequia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/cz.svg",
     "team2": "Sudáfrica",
@@ -337,7 +337,7 @@
   },
   {
     "id": "26",
-    "time": "2026-06-18T15:00:00.000Z",
+    "time": "2026-06-18T19:00:00.000Z",
     "team1": "Suiza",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ch.svg",
     "team2": "Bosnia y Herz.",
@@ -351,7 +351,7 @@
   },
   {
     "id": "27",
-    "time": "2026-06-18T18:00:00.000Z",
+    "time": "2026-06-18T22:00:00.000Z",
     "team1": "Canadá",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ca.svg",
     "team2": "Qatar",
@@ -365,7 +365,7 @@
   },
   {
     "id": "28",
-    "time": "2026-06-18T21:00:00.000Z",
+    "time": "2026-06-19T01:00:00.000Z",
     "team1": "México",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/mx.svg",
     "team2": "Corea del Sur",
@@ -379,7 +379,7 @@
   },
   {
     "id": "32",
-    "time": "2026-06-19T00:00:00.000Z",
+    "time": "2026-06-20T03:00:00.000Z",
     "team1": "Turquía",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/tr.svg",
     "team2": "Paraguay",
@@ -393,7 +393,7 @@
   },
   {
     "id": "29",
-    "time": "2026-06-19T15:00:00.000Z",
+    "time": "2026-06-19T19:00:00.000Z",
     "team1": "Estados Unidos",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/us.svg",
     "team2": "Australia",
@@ -407,7 +407,7 @@
   },
   {
     "id": "30",
-    "time": "2026-06-19T18:00:00.000Z",
+    "time": "2026-06-19T22:00:00.000Z",
     "team1": "Escocia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/gb-sct.svg",
     "team2": "Marruecos",
@@ -421,7 +421,7 @@
   },
   {
     "id": "31",
-    "time": "2026-06-19T21:00:00.000Z",
+    "time": "2026-06-20T00:30:00.000Z",
     "team1": "Brasil",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/br.svg",
     "team2": "Haití",
@@ -435,7 +435,7 @@
   },
   {
     "id": "36",
-    "time": "2026-06-20T00:00:00.000Z",
+    "time": "2026-06-21T04:00:00.000Z",
     "team1": "Túnez",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/tn.svg",
     "team2": "Japón",
@@ -449,7 +449,7 @@
   },
   {
     "id": "20",
-    "time": "2026-06-20T01:00:00.000Z",
+    "time": "2026-06-17T04:00:00.000Z",
     "team1": "Austria",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/at.svg",
     "team2": "Jordania",
@@ -463,7 +463,7 @@
   },
   {
     "id": "33",
-    "time": "2026-06-20T13:00:00.000Z",
+    "time": "2026-06-20T17:00:00.000Z",
     "team1": "Países Bajos",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/nl.svg",
     "team2": "Suecia",
@@ -477,7 +477,7 @@
   },
   {
     "id": "34",
-    "time": "2026-06-20T16:00:00.000Z",
+    "time": "2026-06-20T20:00:00.000Z",
     "team1": "Alemania",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/de.svg",
     "team2": "Costa de Marfil",
@@ -491,7 +491,7 @@
   },
   {
     "id": "35",
-    "time": "2026-06-20T22:00:00.000Z",
+    "time": "2026-06-21T00:00:00.000Z",
     "team1": "Ecuador",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ec.svg",
     "team2": "Curazao",
@@ -505,7 +505,7 @@
   },
   {
     "id": "37",
-    "time": "2026-06-21T12:00:00.000Z",
+    "time": "2026-06-21T16:00:00.000Z",
     "team1": "España",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/es.svg",
     "team2": "Arabia Saudita",
@@ -519,7 +519,7 @@
   },
   {
     "id": "38",
-    "time": "2026-06-21T15:00:00.000Z",
+    "time": "2026-06-21T19:00:00.000Z",
     "team1": "Bélgica",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/be.svg",
     "team2": "Irán",
@@ -533,7 +533,7 @@
   },
   {
     "id": "39",
-    "time": "2026-06-21T18:00:00.000Z",
+    "time": "2026-06-21T22:00:00.000Z",
     "team1": "Uruguay",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/uy.svg",
     "team2": "Cabo Verde",
@@ -547,7 +547,7 @@
   },
   {
     "id": "40",
-    "time": "2026-06-21T21:00:00.000Z",
+    "time": "2026-06-22T01:00:00.000Z",
     "team1": "Nueva Zelanda",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/nz.svg",
     "team2": "Egipto",
@@ -561,7 +561,7 @@
   },
   {
     "id": "41",
-    "time": "2026-06-22T13:00:00.000Z",
+    "time": "2026-06-22T17:00:00.000Z",
     "team1": "Argentina",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ar.svg",
     "team2": "Austria",
@@ -575,7 +575,7 @@
   },
   {
     "id": "42",
-    "time": "2026-06-22T17:00:00.000Z",
+    "time": "2026-06-22T21:00:00.000Z",
     "team1": "Francia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/fr.svg",
     "team2": "Iraq",
@@ -589,7 +589,7 @@
   },
   {
     "id": "43",
-    "time": "2026-06-22T20:00:00.000Z",
+    "time": "2026-06-23T00:00:00.000Z",
     "team1": "Noruega",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/no.svg",
     "team2": "Senegal",
@@ -603,7 +603,7 @@
   },
   {
     "id": "44",
-    "time": "2026-06-22T23:00:00.000Z",
+    "time": "2026-06-23T03:00:00.000Z",
     "team1": "Jordania",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/jo.svg",
     "team2": "Argelia",
@@ -617,7 +617,7 @@
   },
   {
     "id": "45",
-    "time": "2026-06-23T13:00:00.000Z",
+    "time": "2026-06-23T17:00:00.000Z",
     "team1": "Portugal",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/pt.svg",
     "team2": "Uzbekistán",
@@ -631,7 +631,7 @@
   },
   {
     "id": "46",
-    "time": "2026-06-23T16:00:00.000Z",
+    "time": "2026-06-23T20:00:00.000Z",
     "team1": "Inglaterra",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/gb-eng.svg",
     "team2": "Ghana",
@@ -645,7 +645,7 @@
   },
   {
     "id": "47",
-    "time": "2026-06-23T19:00:00.000Z",
+    "time": "2026-06-23T23:00:00.000Z",
     "team1": "Panamá",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/pa.svg",
     "team2": "Croacia",
@@ -659,7 +659,7 @@
   },
   {
     "id": "48",
-    "time": "2026-06-23T22:00:00.000Z",
+    "time": "2026-06-24T02:00:00.000Z",
     "team1": "Colombia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/co.svg",
     "team2": "RD Congo",
@@ -673,7 +673,7 @@
   },
   {
     "id": "49",
-    "time": "2026-06-24T15:00:00.000Z",
+    "time": "2026-06-24T19:00:00.000Z",
     "team1": "Suiza",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ch.svg",
     "team2": "Canadá",
@@ -687,7 +687,7 @@
   },
   {
     "id": "50",
-    "time": "2026-06-24T15:00:00.000Z",
+    "time": "2026-06-24T19:00:00.000Z",
     "team1": "Bosnia y Herz.",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ba.svg",
     "team2": "Qatar",
@@ -701,7 +701,7 @@
   },
   {
     "id": "51",
-    "time": "2026-06-24T18:00:00.000Z",
+    "time": "2026-06-24T22:00:00.000Z",
     "team1": "Escocia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/gb-sct.svg",
     "team2": "Brasil",
@@ -715,7 +715,7 @@
   },
   {
     "id": "52",
-    "time": "2026-06-24T18:00:00.000Z",
+    "time": "2026-06-24T22:00:00.000Z",
     "team1": "Marruecos",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ma.svg",
     "team2": "Haití",
@@ -729,7 +729,7 @@
   },
   {
     "id": "53",
-    "time": "2026-06-24T21:00:00.000Z",
+    "time": "2026-06-25T01:00:00.000Z",
     "team1": "Chequia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/cz.svg",
     "team2": "México",
@@ -743,7 +743,7 @@
   },
   {
     "id": "54",
-    "time": "2026-06-24T21:00:00.000Z",
+    "time": "2026-06-25T01:00:00.000Z",
     "team1": "Sudáfrica",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/za.svg",
     "team2": "Corea del Sur",
@@ -757,7 +757,7 @@
   },
   {
     "id": "55",
-    "time": "2026-06-25T16:00:00.000Z",
+    "time": "2026-06-25T20:00:00.000Z",
     "team1": "Curazao",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/cw.svg",
     "team2": "Costa de Marfil",
@@ -771,7 +771,7 @@
   },
   {
     "id": "56",
-    "time": "2026-06-25T16:00:00.000Z",
+    "time": "2026-06-25T20:00:00.000Z",
     "team1": "Ecuador",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/ec.svg",
     "team2": "Alemania",
@@ -785,7 +785,7 @@
   },
   {
     "id": "57",
-    "time": "2026-06-25T19:00:00.000Z",
+    "time": "2026-06-25T23:00:00.000Z",
     "team1": "Japón",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/jp.svg",
     "team2": "Suecia",
@@ -799,7 +799,7 @@
   },
   {
     "id": "58",
-    "time": "2026-06-25T19:00:00.000Z",
+    "time": "2026-06-25T23:00:00.000Z",
     "team1": "Túnez",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/tn.svg",
     "team2": "Países Bajos",
@@ -813,7 +813,7 @@
   },
   {
     "id": "59",
-    "time": "2026-06-25T22:00:00.000Z",
+    "time": "2026-06-26T02:00:00.000Z",
     "team1": "Turquía",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/tr.svg",
     "team2": "Estados Unidos",
@@ -827,7 +827,7 @@
   },
   {
     "id": "60",
-    "time": "2026-06-25T22:00:00.000Z",
+    "time": "2026-06-26T02:00:00.000Z",
     "team1": "Paraguay",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/py.svg",
     "team2": "Australia",
@@ -841,7 +841,7 @@
   },
   {
     "id": "61",
-    "time": "2026-06-26T15:00:00.000Z",
+    "time": "2026-06-26T19:00:00.000Z",
     "team1": "Noruega",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/no.svg",
     "team2": "Francia",
@@ -855,7 +855,7 @@
   },
   {
     "id": "62",
-    "time": "2026-06-26T15:00:00.000Z",
+    "time": "2026-06-26T19:00:00.000Z",
     "team1": "Senegal",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/sn.svg",
     "team2": "Iraq",
@@ -869,7 +869,7 @@
   },
   {
     "id": "63",
-    "time": "2026-06-26T20:00:00.000Z",
+    "time": "2026-06-28T19:00:00.000Z",
     "team1": "Cabo Verde",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/cv.svg",
     "team2": "Arabia Saudita",
@@ -883,7 +883,7 @@
   },
   {
     "id": "64",
-    "time": "2026-06-26T20:00:00.000Z",
+    "time": "2026-06-27T00:00:00.000Z",
     "team1": "Uruguay",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/uy.svg",
     "team2": "España",
@@ -897,7 +897,7 @@
   },
   {
     "id": "65",
-    "time": "2026-06-26T23:00:00.000Z",
+    "time": "2026-06-27T03:00:00.000Z",
     "team1": "Egipto",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/eg.svg",
     "team2": "Irán",
@@ -911,7 +911,7 @@
   },
   {
     "id": "66",
-    "time": "2026-06-26T23:00:00.000Z",
+    "time": "2026-06-27T03:00:00.000Z",
     "team1": "Nueva Zelanda",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/nz.svg",
     "team2": "Bélgica",
@@ -925,7 +925,7 @@
   },
   {
     "id": "67",
-    "time": "2026-06-27T17:00:00.000Z",
+    "time": "2026-06-27T21:00:00.000Z",
     "team1": "Panamá",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/pa.svg",
     "team2": "Inglaterra",
@@ -939,7 +939,7 @@
   },
   {
     "id": "68",
-    "time": "2026-06-27T17:00:00.000Z",
+    "time": "2026-06-29T17:00:00.000Z",
     "team1": "Croacia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/hr.svg",
     "team2": "Ghana",
@@ -953,7 +953,7 @@
   },
   {
     "id": "69",
-    "time": "2026-06-27T19:30:00.000Z",
+    "time": "2026-06-27T23:30:00.000Z",
     "team1": "Colombia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/co.svg",
     "team2": "Portugal",
@@ -967,7 +967,7 @@
   },
   {
     "id": "70",
-    "time": "2026-06-27T19:30:00.000Z",
+    "time": "2026-06-27T23:30:00.000Z",
     "team1": "RD Congo",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/cd.svg",
     "team2": "Uzbekistán",
@@ -981,7 +981,7 @@
   },
   {
     "id": "71",
-    "time": "2026-06-27T22:00:00.000Z",
+    "time": "2026-06-29T20:30:00.000Z",
     "team1": "Argelia",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/dz.svg",
     "team2": "Austria",
@@ -995,7 +995,7 @@
   },
   {
     "id": "72",
-    "time": "2026-06-27T22:00:00.000Z",
+    "time": "2026-06-28T02:00:00.000Z",
     "team1": "Jordania",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/jo.svg",
     "team2": "Argentina",
@@ -1009,7 +1009,7 @@
   },
   {
     "id": "73",
-    "time": "2026-06-28T16:00:00.000Z",
+    "time": "2026-06-30T01:00:00.000Z",
     "team1": "2º Grupo A",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo B",
@@ -1023,7 +1023,7 @@
   },
   {
     "id": "74",
-    "time": "2026-06-29T13:00:00.000Z",
+    "time": "2026-06-30T17:00:00.000Z",
     "team1": "1º Grupo E",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo A/B/C/D/F",
@@ -1037,7 +1037,7 @@
   },
   {
     "id": "75",
-    "time": "2026-06-29T15:30:00.000Z",
+    "time": "2026-06-30T21:00:00.000Z",
     "team1": "1º Grupo F",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo C",
@@ -1051,7 +1051,7 @@
   },
   {
     "id": "76",
-    "time": "2026-06-29T21:00:00.000Z",
+    "time": "2026-07-01T01:00:00.000Z",
     "team1": "1º Grupo C",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo F/G/H/I/J",
@@ -1065,7 +1065,7 @@
   },
   {
     "id": "77",
-    "time": "2026-06-30T13:00:00.000Z",
+    "time": "2026-07-01T16:00:00.000Z",
     "team1": "1º Grupo I",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo C/D/F/G/H",
@@ -1079,7 +1079,7 @@
   },
   {
     "id": "78",
-    "time": "2026-06-30T17:00:00.000Z",
+    "time": "2026-07-01T20:00:00.000Z",
     "team1": "2º Grupo E",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo I",
@@ -1093,7 +1093,7 @@
   },
   {
     "id": "79",
-    "time": "2026-06-30T21:00:00.000Z",
+    "time": "2026-07-02T00:00:00.000Z",
     "team1": "1º Grupo A",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo C/E/F/H/I",
@@ -1107,7 +1107,7 @@
   },
   {
     "id": "80",
-    "time": "2026-07-01T12:00:00.000Z",
+    "time": "2026-07-02T19:00:00.000Z",
     "team1": "1º Grupo L",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo E/H/I/J/K",
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "81",
-    "time": "2026-07-01T13:00:00.000Z",
+    "time": "2026-07-02T23:00:00.000Z",
     "team1": "1º Grupo D",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo B/E/F/I/J",
@@ -1135,7 +1135,7 @@
   },
   {
     "id": "82",
-    "time": "2026-07-01T17:00:00.000Z",
+    "time": "2026-07-03T03:00:00.000Z",
     "team1": "1º Grupo G",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo A/E/H/I/J",
@@ -1149,7 +1149,7 @@
   },
   {
     "id": "83",
-    "time": "2026-07-02T14:00:00.000Z",
+    "time": "2026-07-03T18:00:00.000Z",
     "team1": "2º Grupo K",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo L",
@@ -1163,7 +1163,7 @@
   },
   {
     "id": "84",
-    "time": "2026-07-02T18:00:00.000Z",
+    "time": "2026-07-03T22:00:00.000Z",
     "team1": "1º Grupo H",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo J",
@@ -1177,7 +1177,7 @@
   },
   {
     "id": "85",
-    "time": "2026-07-02T19:30:00.000Z",
+    "time": "2026-07-04T01:30:00.000Z",
     "team1": "1º Grupo B",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo E/F/G/I/J",
@@ -1191,7 +1191,7 @@
   },
   {
     "id": "86",
-    "time": "2026-07-02T22:00:00.000Z",
+    "time": "2026-07-04T17:00:00.000Z",
     "team1": "1º Grupo J",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo H",
@@ -1205,7 +1205,7 @@
   },
   {
     "id": "87",
-    "time": "2026-07-03T14:00:00.000Z",
+    "time": "2026-07-04T21:00:00.000Z",
     "team1": "1º Grupo K",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo D/E/I/J/L",
@@ -1233,7 +1233,7 @@
   },
   {
     "id": "89",
-    "time": "2026-07-04T13:00:00.000Z",
+    "time": "2026-07-05T20:00:00.000Z",
     "team1": "Ganador 74",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 77",
@@ -1247,7 +1247,7 @@
   },
   {
     "id": "90",
-    "time": "2026-07-04T17:00:00.000Z",
+    "time": "2026-07-06T00:00:00.000Z",
     "team1": "Ganador 73",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 75",
@@ -1261,7 +1261,7 @@
   },
   {
     "id": "91",
-    "time": "2026-07-05T16:00:00.000Z",
+    "time": "2026-07-06T19:00:00.000Z",
     "team1": "Ganador 76",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 78",
@@ -1275,7 +1275,7 @@
   },
   {
     "id": "92",
-    "time": "2026-07-05T20:00:00.000Z",
+    "time": "2026-07-07T00:00:00.000Z",
     "team1": "Ganador 79",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 80",
@@ -1289,7 +1289,7 @@
   },
   {
     "id": "93",
-    "time": "2026-07-06T15:00:00.000Z",
+    "time": "2026-07-07T16:00:00.000Z",
     "team1": "Ganador 83",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 84",
@@ -1303,7 +1303,7 @@
   },
   {
     "id": "94",
-    "time": "2026-07-06T17:00:00.000Z",
+    "time": "2026-07-07T20:00:00.000Z",
     "team1": "Ganador 81",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 82",
@@ -1345,7 +1345,7 @@
   },
   {
     "id": "97",
-    "time": "2026-07-09T16:00:00.000Z",
+    "time": "2026-07-10T19:00:00.000Z",
     "team1": "Ganador 89",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 90",
@@ -1359,7 +1359,7 @@
   },
   {
     "id": "98",
-    "time": "2026-07-10T14:00:00.000Z",
+    "time": "2026-07-11T21:00:00.000Z",
     "team1": "Ganador 93",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 94",
@@ -1373,7 +1373,7 @@
   },
   {
     "id": "99",
-    "time": "2026-07-11T17:00:00.000Z",
+    "time": "2026-07-12T01:00:00.000Z",
     "team1": "Ganador 91",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 92",
@@ -1387,7 +1387,7 @@
   },
   {
     "id": "100",
-    "time": "2026-07-11T20:00:00.000Z",
+    "time": "2026-07-09T20:00:00.000Z",
     "team1": "Ganador 95",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 96",
@@ -1401,7 +1401,7 @@
   },
   {
     "id": "101",
-    "time": "2026-07-14T15:00:00.000Z",
+    "time": "2026-07-14T19:00:00.000Z",
     "team1": "Ganador 97",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 98",
@@ -1415,7 +1415,7 @@
   },
   {
     "id": "102",
-    "time": "2026-07-15T15:00:00.000Z",
+    "time": "2026-07-15T19:00:00.000Z",
     "team1": "Ganador 99",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 100",
@@ -1429,7 +1429,7 @@
   },
   {
     "id": "103",
-    "time": "2026-07-18T17:00:00.000Z",
+    "time": "2026-07-18T21:00:00.000Z",
     "team1": "Perdedor 101",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Perdedor 102",
@@ -1443,7 +1443,7 @@
   },
   {
     "id": "104",
-    "time": "2026-07-19T15:00:00.000Z",
+    "time": "2026-07-19T19:00:00.000Z",
     "team1": "Ganador 101",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 102",

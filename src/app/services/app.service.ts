@@ -497,17 +497,9 @@ export class AppService {
             return of(null);
         }
 
-        const matches = this.matches();
-        const firstMatch = [...matches].sort(
-            (a, b) => new Date(a.time).getTime() - new Date(b.time).getTime(),
-        )[0];
-
-        if (firstMatch) {
-            const deadline = new Date(firstMatch.time).getTime() - 10 * 60 * 1000;
-            if (Date.now() > deadline) {
-                console.error('Desafío de grupo cerrado');
-                return of(null);
-            }
+        if (this.isTournamentLocked()) {
+            console.error('Desafío de grupo cerrado');
+            return of(null);
         }
 
         if (this.groupBets().some((b) => b.groupName === groupName)) {
@@ -535,9 +527,26 @@ export class AppService {
         );
     }
 
+    /** Deadline global: 10 min antes del primer partido del torneo. */
+    private isTournamentLocked(): boolean {
+        const firstStart = this.matches()
+            .map((m) => this.getMatchStartMs(m))
+            .filter((ms): ms is number => ms !== null)
+            .sort((a, b) => a - b)[0];
+        if (firstStart === undefined) {
+            return false;
+        }
+        return Date.now() > firstStart - 10 * 60 * 1000;
+    }
+
     selectChampion(teamId: string) {
         const user = this.currentUser();
         if (!user) {
+            return of(null);
+        }
+
+        if (this.isTournamentLocked()) {
+            console.error('La elección de campeón se cierra 10 minutos antes del primer partido');
             return of(null);
         }
 

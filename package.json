@@ -9,7 +9,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "firebase:seed-matches": "node scripts/seed-matches.mjs",
-    "firebase:sync-results": "node scripts/sync-match-results.mjs"
+    "firebase:sync-results": "node scripts/sync-match-results.mjs",
+    "firebase:backfill-deadlines": "node scripts/backfill-betting-deadlines.mjs",
+    "firebase:clear-db": "node scripts/clear-database.mjs"
   },
   "private": true,
   "packageManager": "npm@11.9.0",
