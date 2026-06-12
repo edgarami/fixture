@@ -301,14 +301,14 @@ export class AppService {
                     const officialOrder = results.groups[gb.groupName];
                     if (officialOrder && Array.isArray(officialOrder)) {
                         const positions = gb.positions as { name?: string }[];
-                        if (positions[0]?.name === officialOrder[0]) {
-                            calculatedPoints += GROUP_FIRST_PLACE_POINTS;
-                        }
-                        const allMatch = positions.every(
-                            (p, idx) => p.name === officialOrder[idx],
-                        );
+                        const allMatch =
+                            positions.length > 0 &&
+                            positions.every((p, idx) => p.name === officialOrder[idx]);
+                        // Full (4 posiciones) NO se acumula con el 1º puesto
                         if (allMatch) {
                             calculatedPoints += GROUP_FULL_ORDER_POINTS;
+                        } else if (positions[0]?.name === officialOrder[0]) {
+                            calculatedPoints += GROUP_FIRST_PLACE_POINTS;
                         }
                     }
                 });

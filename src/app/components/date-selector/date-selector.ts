@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Input, Output, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-interface FixtureDay {
-  id: number;
+export interface FixtureDay {
+  /** Fecha local YYYY-MM-DD */
+  key: string;
   dayName: string;
   dayNumber: string;
   month: string;
@@ -15,12 +16,12 @@ interface FixtureDay {
   template: `
     <div class="date-selector-wrapper">
       <div class="date-scroll-container">
-        <div 
-          *ngFor="let day of fixtureDays" 
-          class="date-item" 
-          [class.active]="day.id === selectedId"
-          (click)="selectDay(day.id)"
-          [id]="'date-' + day.id"
+        <div
+          *ngFor="let day of days"
+          class="date-item"
+          [class.active]="day.key === selectedKey"
+          (click)="selectDay(day.key)"
+          [id]="'date-' + day.key"
         >
           <span class="day-name">{{day.dayName}}</span>
           <span class="day-number">{{day.dayNumber}}</span>
@@ -90,47 +91,14 @@ interface FixtureDay {
     .date-item.active .active-indicator { opacity: 1; }
   `
 })
-export class DateSelector implements OnInit {
-  @Input() selectedId: number = 1;
-  @Output() dateSelected = new EventEmitter<number>();
+export class DateSelector {
+  /** Días con partidos (los arma la pantalla de partidos desde el fixture real) */
+  @Input() days: FixtureDay[] = [];
+  @Input() selectedKey = '';
+  @Output() dateSelected = new EventEmitter<string>();
 
-  fixtureDays: FixtureDay[] = [];
-
-  ngOnInit() {
-    this.generateDays();
-  }
-
-  generateDays() {
-    const startDate = new Date('2026-06-11T12:00:00Z');
-    const dayNames = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
-    const monthNames = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
-
-    const excludeDates = [
-      '2026-07-08',
-      '2026-07-12',
-      '2026-07-13',
-      '2026-07-16',
-      '2026-07-17'
-    ];
-
-    for (let i = 0; i < 39; i++) {
-      const d = new Date(startDate);
-      d.setDate(startDate.getDate() + i);
-      
-      const dateKey = d.toISOString().split('T')[0];
-      if (excludeDates.includes(dateKey)) continue;
-
-      this.fixtureDays.push({
-        id: i + 1,
-        dayName: dayNames[d.getUTCDay()],
-        dayNumber: d.getUTCDate().toString(),
-        month: monthNames[d.getUTCMonth()]
-      });
-    }
-  }
-
-  selectDay(id: number) {
-    this.selectedId = id;
-    this.dateSelected.emit(id);
+  selectDay(key: string) {
+    this.selectedKey = key;
+    this.dateSelected.emit(key);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DateSelector } from '../../components/date-selector/date-selector';
+import { DateSelector, FixtureDay } from '../../components/date-selector/date-selector';
 import { MatchCard } from '../../components/match-card/match-card';
 import { AppService, Match } from '../../services/app.service';
 
@@ -15,8 +15,9 @@ import { AppService, Match } from '../../services/app.service';
         <p class="subtitle">Fixture Oficial Mundial 2026 - 48 Selecciones</p>
       </header>
 
-      <app-date-selector 
-        [selectedId]="selectedId()" 
+      <app-date-selector
+        [days]="fixtureDays()"
+        [selectedKey]="effectiveKey()"
         (dateSelected)="onDateChange($event)"
       ></app-date-selector>
 
@@ -30,7 +31,7 @@ import { AppService, Match } from '../../services/app.service';
         
         <div class="matches-list animate-slide-up">
             <div class="date-header gold-text">
-                {{selectedDate().toISOString() | date:'EEEE, d MMMM':'UTC' | uppercase}}
+                {{selectedDate() | date:'EEEE, d MMMM' | uppercase}}
             </div>
             <div class="matches-grid">
                 <app-match-card 
@@ -117,23 +118,60 @@ import { AppService, Match } from '../../services/app.service';
 export class MatchesComponent {
   public appService = inject(AppService);
 
-  // Start date of WC 2026
-  private baseDate = new Date('2026-06-11T12:00:00Z');
+  private readonly dayNames = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
+  private readonly monthNames = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
 
-  selectedId = signal<number>(1);
+  /** Fecha local YYYY-MM-DD (el partido se agrupa en el día que se ve en la zona horaria del usuario) */
+  private localDateKey(d: Date): string {
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
 
-  selectedDate = computed(() => {
-    const date = new Date(this.baseDate);
-    date.setDate(this.baseDate.getDate() + (this.selectedId() - 1));
-    return date;
+  selectedKey = signal<string | null>(null);
+
+  /** Días del selector: solo fechas (locales) que tienen partidos en el fixture */
+  fixtureDays = computed<FixtureDay[]>(() => {
+    const seen = new Set<string>();
+    const days: FixtureDay[] = [];
+    for (const m of this.appService.matches()) {
+      const d = new Date(m.time);
+      if (Number.isNaN(d.getTime())) continue;
+      const key = this.localDateKey(d);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      days.push({
+        key,
+        dayName: this.dayNames[d.getDay()],
+        dayNumber: String(d.getDate()),
+        month: this.monthNames[d.getMonth()],
+      });
+    }
+    return days.sort((a, b) => a.key.localeCompare(b.key));
   });
+
+  /** Día activo: el elegido por el usuario, o el día de hoy, o el próximo día con partidos */
+  effectiveKey = computed(() => {
+    const chosen = this.selectedKey();
+    if (chosen) return chosen;
+    const days = this.fixtureDays();
+    const today = this.localDateKey(new Date());
+    if (days.some(d => d.key === today)) return today;
+    return days.find(d => d.key > today)?.key ?? days[0]?.key ?? today;
+  });
+
+  selectedDate = computed(() => new Date(`${this.effectiveKey()}T12:00:00`));
 
   filteredMatches = computed(() => {
-    const dateStr = this.selectedDate().toISOString().split('T')[0];
-    return this.appService.matches().filter(m => m.time.startsWith(dateStr));
+    const key = this.effectiveKey();
+    return this.appService
+      .matches()
+      .filter(m => this.localDateKey(new Date(m.time)) === key)
+      .sort((a, b) => new Date(a.time).getTime() - new Date(b.time).getTime());
   });
 
-  onDateChange(id: number) {
-    this.selectedId.set(id);
+  onDateChange(key: string) {
+    this.selectedKey.set(key);
   }
 }

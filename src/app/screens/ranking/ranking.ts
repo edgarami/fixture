@@ -70,15 +70,15 @@ import { AppService } from '../../services/app.service';
             <div class="legend-info">
               <span class="legend-label">DESAFÍO GRUPO (FULL)</span>
               <span class="legend-value">3 PTS</span>
-              <p class="legend-desc">Por acertar las 4 posiciones del grupo.</p>
+              <p class="legend-desc">Por acertar las 4 posiciones del grupo (no se suma al punto del 1º puesto).</p>
             </div>
           </div>
           <div class="legend-item">
             <div class="legend-icon"><i class="fas fa-bullseye gold-text"></i></div>
             <div class="legend-info">
               <span class="legend-label">RESULTADO EXACTO</span>
-              <span class="legend-value">5–10 PTS</span>
-              <p class="legend-desc">5 pts en fase de grupos (incluye empate); +1 por cada ronda eliminatoria (hasta 10 en la final).</p>
+              <span class="legend-value">10–15 PTS</span>
+              <p class="legend-desc">10 pts en fase de grupos (incluye empate); +1 por cada ronda eliminatoria (hasta 15 en la final).</p>
             </div>
           </div>
           <div class="legend-item">
@@ -93,8 +93,8 @@ import { AppService } from '../../services/app.service';
             <div class="legend-icon"><i class="fas fa-futbol gold-text"></i></div>
             <div class="legend-info">
               <span class="legend-label">PENALTIS (ELIMINATORIAS)</span>
-              <span class="legend-value">3–10 PTS</span>
-              <p class="legend-desc">Apuesta extra si va a penaltis. Base 2–5 pts según ronda, más el bonus por fase.</p>
+              <span class="legend-value">1 PT</span>
+              <p class="legend-desc">Apuesta extra desde los 16avos (se apuesta vaya o no a penaltis): 1 pto si acertás el ganador, en todas las rondas hasta la final.</p>
             </div>
           </div>
         </div>
