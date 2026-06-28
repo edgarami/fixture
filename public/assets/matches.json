@@ -1009,7 +1009,7 @@
   },
   {
     "id": "73",
-    "time": "2026-06-30T01:00:00.000Z",
+    "time": "2026-06-28T19:00:00.000Z",
     "team1": "2º Grupo A",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo B",
@@ -1023,7 +1023,7 @@
   },
   {
     "id": "74",
-    "time": "2026-06-30T17:00:00.000Z",
+    "time": "2026-06-29T20:30:00.000Z",
     "team1": "1º Grupo E",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo A/B/C/D/F",
@@ -1037,7 +1037,7 @@
   },
   {
     "id": "75",
-    "time": "2026-06-30T21:00:00.000Z",
+    "time": "2026-06-30T01:00:00.000Z",
     "team1": "1º Grupo F",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo C",
@@ -1051,7 +1051,7 @@
   },
   {
     "id": "76",
-    "time": "2026-07-01T01:00:00.000Z",
+    "time": "2026-06-29T17:00:00.000Z",
     "team1": "1º Grupo C",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo F/G/H/I/J",
@@ -1065,7 +1065,7 @@
   },
   {
     "id": "77",
-    "time": "2026-07-01T16:00:00.000Z",
+    "time": "2026-06-30T21:00:00.000Z",
     "team1": "1º Grupo I",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo C/D/F/G/H",
@@ -1079,7 +1079,7 @@
   },
   {
     "id": "78",
-    "time": "2026-07-01T20:00:00.000Z",
+    "time": "2026-06-30T17:00:00.000Z",
     "team1": "2º Grupo E",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo I",
@@ -1093,7 +1093,7 @@
   },
   {
     "id": "79",
-    "time": "2026-07-02T00:00:00.000Z",
+    "time": "2026-07-01T01:00:00.000Z",
     "team1": "1º Grupo A",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo C/E/F/H/I",
@@ -1107,7 +1107,7 @@
   },
   {
     "id": "80",
-    "time": "2026-07-02T19:00:00.000Z",
+    "time": "2026-07-01T16:00:00.000Z",
     "team1": "1º Grupo L",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo E/H/I/J/K",
@@ -1121,7 +1121,7 @@
   },
   {
     "id": "81",
-    "time": "2026-07-02T23:00:00.000Z",
+    "time": "2026-07-02T00:00:00.000Z",
     "team1": "1º Grupo D",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo B/E/F/I/J",
@@ -1135,7 +1135,7 @@
   },
   {
     "id": "82",
-    "time": "2026-07-03T03:00:00.000Z",
+    "time": "2026-07-01T20:00:00.000Z",
     "team1": "1º Grupo G",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo A/E/H/I/J",
@@ -1149,7 +1149,7 @@
   },
   {
     "id": "83",
-    "time": "2026-07-03T18:00:00.000Z",
+    "time": "2026-07-04T01:30:00.000Z",
     "team1": "2º Grupo K",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo L",
@@ -1163,7 +1163,7 @@
   },
   {
     "id": "84",
-    "time": "2026-07-03T22:00:00.000Z",
+    "time": "2026-07-02T19:00:00.000Z",
     "team1": "1º Grupo H",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo J",
@@ -1177,7 +1177,7 @@
   },
   {
     "id": "85",
-    "time": "2026-07-04T01:30:00.000Z",
+    "time": "2026-07-03T03:00:00.000Z",
     "team1": "1º Grupo B",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo E/F/G/I/J",
@@ -1191,7 +1191,7 @@
   },
   {
     "id": "86",
-    "time": "2026-07-04T17:00:00.000Z",
+    "time": "2026-07-03T22:00:00.000Z",
     "team1": "1º Grupo J",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "2º Grupo H",
@@ -1205,7 +1205,7 @@
   },
   {
     "id": "87",
-    "time": "2026-07-04T21:00:00.000Z",
+    "time": "2026-07-02T23:00:00.000Z",
     "team1": "1º Grupo K",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "3º Grupo D/E/I/J/L",
@@ -1317,7 +1317,7 @@
   },
   {
     "id": "95",
-    "time": "2026-07-07T12:00:00.000Z",
+    "time": "2026-07-04T21:00:00.000Z",
     "team1": "Ganador 86",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 88",
@@ -1331,7 +1331,7 @@
   },
   {
     "id": "96",
-    "time": "2026-07-07T13:00:00.000Z",
+    "time": "2026-07-04T17:00:00.000Z",
     "team1": "Ganador 85",
     "team1Flag": "https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.3.2/flags/4x3/un.svg",
     "team2": "Ganador 87",
